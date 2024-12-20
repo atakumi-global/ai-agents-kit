@@ -1,9 +1,4 @@
-<div align="center">
-  <a href="https://www.youtube.com/channel/UCMwVTLZIRRUyyVrkjDpn4pA">
-    <img alt="AI Agents Masterclass" src="https://i.imgur.com/8Gr2pBA.png">
-    <h1 align="center">AI Agents Masterclass</h1>
-  </a>
-</div>
+
 
 <p align="center">
   Artificial Intelligence is the #1 thing for all developers to spend their time on now.
