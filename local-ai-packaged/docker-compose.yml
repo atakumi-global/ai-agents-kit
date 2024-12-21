@@ -96,6 +96,8 @@ services:
     <<: *service-n8n
     container_name: n8n-import
     entrypoint: /bin/sh
+    environment:
+      - N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true
     command:
       - "-c"
       - "n8n import:credentials --separate --input=/backup/credentials && n8n import:workflow --separate --input=/backup/workflows"
