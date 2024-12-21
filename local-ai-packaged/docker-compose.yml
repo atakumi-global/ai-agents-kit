@@ -98,7 +98,7 @@ services:
     entrypoint: /bin/sh
     environment:
       - N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true
-    command: /bin/sh -c "n8n import:credentials --separate --input=/backup/credentials && n8n import:workflow --separate --input=/backup/workflows"
+    command: /bin/sh -c "n8n import:credentials --separate --input=/backup/credentials && n8n import:workflow --separate --input=/backup/workflows && exit 0"
     volumes:
       - ./n8n/backup:/backup
     depends_on:
