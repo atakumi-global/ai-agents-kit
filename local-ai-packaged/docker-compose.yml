@@ -98,13 +98,13 @@ services:
     entrypoint: /bin/sh
     environment:
       - N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true
-    command: ["-c", "n8n import:credentials --separate --input=/backup/credentials && n8n import:workflow --separate --input=/backup/workflows && exit 0"]
+    command: ["-c", "n8n import:credentials --separate --input=/backup/credentials && n8n import:workflow --separate --input=/backup/workflows && if [ $(n8n import:credentials --separate --input=/backup/credentials | grep -c 'Successfully imported 0 credentials') -gt 0 ] && [ $(n8n import:workflow --separate --input=/backup/workflows | grep -c 'Successfully imported 0 workflows') -gt 0 ]; then exit 1; else exit 0; fi"]
     volumes:
       - ./n8n/backup:/backup
     depends_on:
       postgres:
         condition: service_healthy
-
+      
   n8n:
     <<: *service-n8n
     container_name: n8n
